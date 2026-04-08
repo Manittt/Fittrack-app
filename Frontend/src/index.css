@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Dark mode (default) ─────────────────────────────── */
+:root {
+  --bg:         #0A0A0A;
+  --bg-card:    #1A1A1A;
+  --bg-header:  #141414;
+  --border:     #27272A;
+  --border-2:   #3f3f46;
+  --text:       #FFFFFF;
+  --text-2:     #A1A1AA;
+  --text-3:     #71717A;
+  --accent:     #007AFF;
+  --accent-h:   #0066DD;
+}
+
+/* ── Light mode ──────────────────────────────────────── */
+html.light {
+  --bg:         #F4F4F5;
+  --bg-card:    #FFFFFF;
+  --bg-header:  #FFFFFF;
+  --border:     #E4E4E7;
+  --border-2:   #D4D4D8;
+  --text:       #09090B;
+  --text-2:     #52525B;
+  --text-3:     #A1A1AA;
+  --accent:     #007AFF;
+  --accent-h:   #0066DD;
+}
+
+/* Apply to body automatically — ALL pages benefit */
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Tailwind base overrides */
+@layer base {
+  * { @apply border-border; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-header); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-2); }
+
+/* Debug wrapper (from previous config, keep it) */
+@layer base {
+  [data-debug-wrapper="true"] { display: contents !important; }
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit; margin-right: inherit;
+    margin-top: inherit; margin-bottom: inherit;
+    padding-left: inherit; padding-right: inherit;
+    padding-top: inherit; padding-bottom: inherit;
+    column-gap: inherit; row-gap: inherit; gap: inherit;
+    border-left-width: inherit; border-right-width: inherit;
+    border-top-width: inherit; border-bottom-width: inherit;
+    border-left-style: inherit; border-right-style: inherit;
+    border-top-style: inherit; border-bottom-style: inherit;
+    border-left-color: inherit; border-right-color: inherit;
+    border-top-color: inherit; border-bottom-color: inherit;
+  }
+}

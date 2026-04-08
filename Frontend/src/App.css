@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* ── Dark mode (default) ───────────────────────── */
+:root {
+  --bg-primary:    #0A0A0A;
+  --bg-secondary:  #141414;
+  --bg-card:       #1A1A1A;
+  --border:        #27272A;
+  --border-hover:  #3f3f46;
+  --text-primary:  #FFFFFF;
+  --text-secondary:#A1A1AA;
+  --text-muted:    #71717A;
+  --accent:        #007AFF;
+  --accent-hover:  #0066DD;
+}
+
+/* ── Light mode ────────────────────────────────── */
+:root.light {
+  --bg-primary:    #F4F4F5;
+  --bg-secondary:  #FFFFFF;
+  --bg-card:       #FFFFFF;
+  --border:        #E4E4E7;
+  --border-hover:  #A1A1AA;
+  --text-primary:  #09090B;
+  --text-secondary:#52525B;
+  --text-muted:    #A1A1AA;
+  --accent:        #007AFF;
+  --accent-hover:  #0066DD;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.barlow {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* ── Theme-aware utility classes ───────────────── */
+.themed-bg        { background-color: var(--bg-primary); }
+.themed-bg-card   { background-color: var(--bg-card); }
+.themed-bg-header { background-color: var(--bg-secondary); }
+.themed-border    { border-color: var(--border); }
+.themed-text      { color: var(--text-primary); }
+.themed-text-muted{ color: var(--text-muted); }
+
+/* Button transitions */
+button {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+button:hover  { transform: translateY(-1px); }
+button:active { transform: translateY(0); }
+
+/* Card hover */
+.workout-card {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.workout-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+.set-complete { animation: pulse 0.3s ease; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track  { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
